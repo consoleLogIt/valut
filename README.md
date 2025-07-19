@@ -16,3 +16,10 @@ HOW TO START LOCALLY:
 3. npm install
 4. npm run dev
 
+
+HOW TO RUN E2E TEST: 
+1. npm run test
+
+
+
+
