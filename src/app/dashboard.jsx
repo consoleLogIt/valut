@@ -80,6 +80,7 @@ export default function Dashboard() {
         <div className="flex justify-between items-center mb-6">
           <h1 className="text-2xl font-bold">My Secrets</h1>
           <Button
+            data-testid="add-secret-btn"
             onClick={() => {
               setEditingSecret({ name: "", value: "" });
               setFormModalOpen(true);

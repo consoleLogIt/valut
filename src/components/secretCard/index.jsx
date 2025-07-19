@@ -10,7 +10,7 @@ export function SecretCard({
   isRevealed,
 }) {
   return (
-    <Card className="hover:shadow-md transition-shadow">
+    <Card data-testid={`secret-card-${secret.name}`} className="hover:shadow-md transition-shadow">
       <CardHeader className="pb-2">
         <div className="flex justify-between items-start">
           <CardTitle className="text-lg font-medium">{secret.name}</CardTitle>
@@ -54,9 +54,9 @@ export function SecretCard({
       </CardHeader>
       <CardContent>
         <div className="bg-gray-50 p-3 rounded-md">
-          <code data-testid={isRevealed ? "secret-value-revealed" : "secret-value-hidden"} className="break-all font-mono">
+          <div data-testid={isRevealed ? "secret-value-revealed" : "secret-value-hidden"} className="break-all font-mono">
             {isRevealed ? secret.value : "•".repeat(12)}
-          </code>
+          </div>
         </div>
       </CardContent>
     </Card>

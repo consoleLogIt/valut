@@ -53,6 +53,7 @@ export function SecretFormModal({
                 Secret Name
               </label>
               <Input
+                data-testid="secret-name-input"
                 id="name"
                 name="name"
                 value={secret.name}
@@ -66,6 +67,7 @@ export function SecretFormModal({
                 Secret Value
               </label>
               <Textarea
+                data-testid="secret-value-input"
                 id="value"
                 name="value"
                 value={secret.value}
@@ -87,7 +89,7 @@ export function SecretFormModal({
             >
               Cancel
             </Button>
-            <Button type="submit">
+            <Button data-testid={isEditing ? "update-secret-btn" : "save-secret-btn"} type="submit">
               {isEditing ? "Update Secret" : "Save Secret"}
             </Button>
           </DialogFooter>
