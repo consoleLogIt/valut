@@ -16,6 +16,7 @@ export function SecretCard({
           <CardTitle className="text-lg font-medium">{secret.name}</CardTitle>
           <div className="flex space-x-2">
             <Button
+              data-testid={isRevealed ? "hide-secret-btn" : "reveal-secret-btn"}
               variant="ghost"
               size="icon"
               className="h-8 w-8"
@@ -29,7 +30,7 @@ export function SecretCard({
               )}
             </Button>
 
-            <Button
+            <Button data-testid="edit-secret-btn"
               variant="ghost"
               size="icon"
               className="h-8 w-8"
@@ -38,7 +39,8 @@ export function SecretCard({
             >
               <Pencil className="h-4 w-4" />
             </Button>
-            <Button
+            <Button 
+              data-testid="delete-secret-btn"
               variant="ghost"
               size="icon"
               className="h-8 w-8 text-red-500 hover:text-red-600"
@@ -52,7 +54,7 @@ export function SecretCard({
       </CardHeader>
       <CardContent>
         <div className="bg-gray-50 p-3 rounded-md">
-          <code className="break-all font-mono">
+          <code data-testid={isRevealed ? "secret-value-revealed" : "secret-value-hidden"} className="break-all font-mono">
             {isRevealed ? secret.value : "•".repeat(12)}
           </code>
         </div>
