@@ -15,7 +15,7 @@ export function Header() {
 
   return (
     <header className="border-b">
-      <div className=" flex h-16 items-center justify-between px-4 w-full">
+      <div className="flex h-16 items-center justify-between px-4 w-full">
         <h1 className="text-xl font-semibold">Dashboard</h1>
         <div className="flex items-center gap-4">
           <span className="text-sm text-gray-600">{user.email}</span>

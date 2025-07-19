@@ -33,7 +33,7 @@ export default function Dashboard() {
   const [editingSecret, setEditingSecret] = useState(null);
   const [revealedSecrets, setRevealedSecrets] = useState({});
   const [copiedId, setCopiedId] = useState(null);
-  const isEditing = !!editingSecret;
+  const [isEditing, setIsEditing] = useState(false);
 
   useEffect(() => {
     // loads the secrets
@@ -73,22 +73,17 @@ export default function Dashboard() {
     }));
   };
 
-  const copyToClipboard = (text, id) => {
-    navigator.clipboard.writeText(text);
-    setCopiedId(id);
-    setTimeout(() => setCopiedId(null), 2000);
-  };
-
   return (
     <div className="min-h-screen bg-gray-50">
       <Header />
-      <main className="container py-8 mx-auto">
+      <main className="container py-8 px-4 mx-auto">
         <div className="flex justify-between items-center mb-6">
           <h1 className="text-2xl font-bold">My Secrets</h1>
           <Button
             onClick={() => {
               setEditingSecret({ name: "", value: "" });
               setFormModalOpen(true);
+              setIsEditing(false);
             }}
           >
             <Plus className="mr-2 h-4 w-4" />
@@ -109,9 +104,9 @@ export default function Dashboard() {
                 onEdit={() => {
                   setEditingSecret(secret);
                   setFormModalOpen(true);
+                  setIsEditing(true);
                 }}
                 onDelete={() => handleDeleteClick(secret)}
-                onCopy={copyToClipboard}
                 onToggleReveal={toggleRevealSecret}
                 isRevealed={!!revealedSecrets[secret._id]}
                 isCopied={copiedId === secret._id}

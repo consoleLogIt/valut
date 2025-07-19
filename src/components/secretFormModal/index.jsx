@@ -74,13 +74,16 @@ export function SecretFormModal({
                 className="min-h-[100px] font-mono"
                 required
               />
+              <p className="text-xs text-muted-foreground mt-1">
+                Secrets are encrypted and only readable by you
+              </p>
             </div>
           </div>
           <DialogFooter>
             <Button
               type="button"
               variant="outline"
-              onClick={() => onOpenChange(false)}
+              onClick={() => setFormModalOpen(false)}
             >
               Cancel
             </Button>
